@@ -16,32 +16,38 @@ header {
   height: 100vh;
 }
 
-nav {
-  min-height: 8vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
 
-.logo-img img {
-  width: 120px;
+.navbar {
+  flex: 1;
 }
 
 .nav-links {
   display: flex;
   justify-content: space-around;
-  width: 50%;
+  width: 80%;
 }
+
+.logo-img img {
+  width: 120px;
+  z-index: 1;
+
+}
+
+
 
 .nav-links li {
   list-style: none;
+
+
 }
 
 .cool-links {
   text-decoration: none;
   color: #2b81cc;
   letter-spacing: 3px;
-  font-size: 18px;
+  font-size: 20px;
+  Text-decoration: none !important;
+
 }
 
 .cool-links::after {
@@ -70,11 +76,8 @@ nav {
   transition: all 0.3s ease;
 }
 
-@media screen and (max-width: 1024px) {
-  .nav-links {
-    width: 60%;
-  }
-}
+
+
 
 @media screen and (max-width: 769px) {
   .burger {
@@ -92,18 +95,21 @@ nav {
     top: 8vh;
     right: 0;
     height: 92vh;
+    /* display: none; */
     background-color: #2b81cc;
     display: flex;
     flex-direction: column;
     align-items: center;
     opacity: 0;
-    transition: 1.7s;
+    transition: 0;
     margin-top: 50px;
     padding: 10px 0;
+
   }
 
   .nav-links li a {
     color: white;
+
   }
 
   .nav-links li {
@@ -113,6 +119,7 @@ nav {
 
 .nav-active {
   opacity: 1;
+
   transition: 1.5s ease-in;
 }
 
@@ -470,4 +477,10 @@ section {
 .error {
   color: red;
   font-style: italic;
+}
+
+/* passion */
+.center-image {
+  display: flex;
+  /* justify-content: center; */
 }

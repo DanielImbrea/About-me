@@ -1,125 +1,140 @@
+var $window = $(window);
+
+// An event listener that listen for scrolling
+$window.on("scroll resize", function () {
+  // when the user scrolled select what an element to check if the user reached there
+  var $animation_elements = $(".skills");
+  checkIfInView(
+    $animation_elements,
+    function () {
+      // if the user is already on this part trigger the animation
+      setTimeout(() => {
+        $(".skill-per").each(function () {
+          var $this = $(this);
+          var per = $this.attr("per");
+          $this.css("width", per + "%");
+        });
+      }, 500);
+    },
+    function () {
+      $(".skill-per").each(function () {
+        var $this = $(this);
+        $this.css("width", 0 + "%");
+      });
+    }
+  );
+});
+$window.trigger("scroll");
+
 function navSlide() {
   const burger = document.querySelector(".burger");
   const nav = document.querySelector(".nav-links");
-  const navLinks = document.querySelectorAll('.nav-links li');
+  const navLinks = document.querySelectorAll(".nav-links li");
   //Toggle Nav
-  burger.addEventListener('click', () => {
-    nav.classList.toggle('nav-active')
+  burger.addEventListener("click", () => {
+    nav.classList.toggle("nav-active");
     //Animate Links
     navLinks.forEach((link, index) => {
+      // $(nav).css("background-color", "#2b81cc");
       if (link.style.animation) {
-        link.style.animation = ''
+        link.style.animation = "";
       } else {
-        link.style.animation = `navLinkFade 0.5s ease forwards ${index /7 + 1}s`;
+        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 +
+          1}s`;
       }
-    })
+    });
 
     burger.classList.toggle("toggle");
-  })
+  });
 }
 navSlide();
 
-// skills
-
-$(function () {
-  $('.skill-per').each(function () {
-
-    var $this = $(this);
-    var per = $this.attr('per');
-    $this.css("width", per + "%");
-
-  });
-
-});
-
-// form validation
-$.validator.addMethod("noSpace", function (value, element) {
-  return value == '' || value.trim().length != 0;
-}, "No space please and don't leave it empty");
-$.validator.addMethod("customEmail", function (value, element) {
-  return this.optional(element) || /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value);
-}, "Please enter valid email address!");
-$.validator.addMethod("alphanumeric", function (value, element) {
-  return this.optional(element) || /^\w+$/i.test(value);
-}, "Letters, numbers, and underscores only please");
-var $registrationForm = $('#registration');
+var $registrationForm = $("#registration");
 if ($registrationForm.length) {
   $registrationForm.validate({
     rules: {
       username: {
         required: true,
-        alphanumeric: true
+        alphanumeric: true,
       },
       email: {
         required: true,
-        customEmail: true
+        customEmail: true,
+      },
+      phone: {
+        required: true,
+        number: true,
+        phoneNumberLength: true,
+        phoneNumberPrefix: true,
       },
       password: {
         required: true,
-        minlength: 4
+        minlength: 4,
       },
       confirm: {
         required: true,
-        equalTo: '#password'
+        equalTo: "#password",
       },
       fname: {
         required: true,
-        noSpace: true
+        noSpace: true,
       },
       lname: {
         required: true,
-        noSpace: true
+        noSpace: true,
       },
       gender: {
-        required: true
+        required: true,
       },
       hobbies: {
-        required: true
+        required: true,
       },
       country: {
-        required: true
+        required: true,
       },
       address: {
-        required: true
-      }
+        required: true,
+      },
     },
     messages: {
       username: {
-        required: 'Please enter username!'
+        required: "Please enter username!",
       },
       email: {
-        required: 'Please enter email!',
-        email: 'Please enter valid email!'
+        required: "Please enter email!",
+        email: "Please enter valid email!",
       },
       password: {
-        required: 'Please enter password!'
+        required: "Please enter password!",
       },
       confirm: {
-        required: 'Please enter confirm password!',
-        equalTo: 'Please enter same password!'
+        required: "Please enter confirm password!",
+        equalTo: "Please enter same password!",
       },
       fname: {
-        required: 'Please enter first name!'
+        required: "Please enter first name!",
       },
       lname: {
-        required: 'Please enter last name!'
+        required: "Please enter last name!",
       },
       country: {
-        required: 'Please select country!'
+        required: "Please select country!",
       },
       address: {
-        required: 'Please enter address!'
-      }
+        required: "Please enter address!",
+      },
     },
     errorPlacement: function (error, element) {
       if (element.is(":radio")) {
-        error.appendTo(element.parents('.gender'));
+        error.appendTo(element.parents(".gender"));
       } else if (element.is(":checkbox")) {
-        error.appendTo(element.parents('.hobbies'));
+        error.appendTo(element.parents(".hobbies"));
       } else {
         error.insertAfter(element);
       }
-
-    }
+    },
   });
 }
+
+
+

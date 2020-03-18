@@ -11,31 +11,37 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="./css/style.css" />
 
-  <link rel="stylesheet" href="./css/queries.css" />
+
+
+  <link rel="stylesheet" href="./css/style.css" />
 
 </head>
 
 <body>
   <header>
-    <nav>
-      <div class="logo-img " data-aos="fade-left">
-        <img src="./images/logo.jfif" alt="" />
+    <div class="container">
+      <div class="row">
+        <nav class="navbar" data-aos="fade-left">
+          <div class="logo-img " data-aos="fade-left">
+            <img src="./images/logo.jfif" alt="" />
+          </div>
+          <ul class="nav-links">
+            <li><a class="cool-links" href="#">Acasa</a></li>
+            <li><a class="cool-links" href="#despre-mine">Despre mine</a></li>
+            <li><a class="cool-links" href="#abilitati">Abilitati</a></li>
+            <li><a class="cool-links" href="#">Inregistrare</a></li>
+            <li><a class="cool-links" href="#">Logare</a></li>
+          </ul>
+          <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+        </nav>
       </div>
-      <ul class="nav-links" data-aos="fade-left">
-        <li><a class="cool-links" href="#">Acasa</a></li>
-        <li><a class="cool-links" href="#despre-mine">Despre mine</a></li>
-        <li><a class="cool-links" href="#abilitati">Abilitati</a></li>
-        <li><a class="cool-links" href="#">Inregistrare</a></li>
-        <li><a class="cool-links" href="#">Logare</a></li>
-      </ul>
-      <div class="burger">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-      </div>
-    </nav>
+    </div>
+
   </header>
   <section id="despre-mine" class="about-me" data-aos="fade-down-right" id="about">
     <div class="container">
@@ -166,6 +172,8 @@
             <br />
             <input type="text" class="form-control" name="email" placeholder="Email" />
             <br />
+            <input type="text" class="form-control" name="phone" placeholder="Phone" />
+            <br />
             <input type="password" class="form-control" name="password" placeholder="Password" id="password" />
             <br />
             <input type="password" class="form-control" name="confirm" placeholder="Confirm Password" />
@@ -175,8 +183,8 @@
             <input type="text" class="form-control" name="lname" placeholder="Last Name" />
             <br />
             <div class="gender">
-              <label class="radio-inline"><input type="radio" name="gender" class="form-contorl" />Male</label>
-              <label class="radio-inline"><input type="radio" name="gender" class="form-contorl" />Female</label>
+              <label class="radio-inline"><input type="radio" name="gender" class="form-control" />Male</label>
+              <label class="radio-inline"><input type="radio" name="gender" class="form-control" />Female</label>
             </div>
             <br />
 
@@ -204,31 +212,12 @@
 
 
         </form>
-        <div data-aos="fade-down-left"  class="register-img"> <img src="./images/undraw_unlock_24mb.svg" alt=""></div>
+        <div data-aos="fade-down-left" class="register-img"> <img src="./images/undraw_unlock_24mb.svg" alt=""></div>
       </div>
     </div>
 
 
   </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
@@ -237,13 +226,14 @@
     });
   </script>
 
-  
+
   <script src="https://kit.fontawesome.com/4bc44218ac.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+  <script src="./js/utils.js"></script>
   <script src="./js/script.js"></script>
- 
+
 </body>
 
 </html>
